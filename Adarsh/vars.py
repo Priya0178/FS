@@ -16,11 +16,11 @@ class Var(object):
     SLEEP_THRESHOLD = int(getenv('SLEEP_THRESHOLD', "60"))
     WORKERS = int(getenv('WORKERS', "4"))
     BIN_CHANNEL = int(getenv('BIN_CHANNEL', "-1001973449555"))
-    PORT = int(getenv('PORT', "2222"))
+    PORT = int(getenv('PORT', "80"))
     BIND_ADRESS = str(getenv('WEB_SERVER_BIND_ADDRESS', "4.240.106.45"))
     PING_INTERVAL = int(environ.get("PING_INTERVAL", "1200"))  # 20 minutes
     OWNER_ID = set(int(x) for x in os.environ.get("OWNER_ID", "1092802988").split())  
-    NO_PORT = bool(getenv('NO_PORT', True))
+    NO_PORT = bool(getenv('NO_PORT', False))
     APP_NAME = None
     OWNER_USERNAME = str(getenv('OWNER_USERNAME', "legend_x01"))
     if 'DYNO' in environ:
@@ -29,7 +29,7 @@ class Var(object):
     
     else:
         ON_HEROKU = False
-    FQDN = str(getenv('FQDN', "4.240.106.45:2222")) if not ON_HEROKU or getenv('FQDN',"4.240.106.45:2222") else APP_NAME+'.herokuapp.com'
+    FQDN = str(getenv('FQDN', "4.240.106.45:80")) if not ON_HEROKU or getenv('FQDN',"4.240.106.45:80") else APP_NAME+'.herokuapp.com'
     HAS_SSL=bool(getenv('HAS_SSL',False))
     if HAS_SSL:
         URL = "https://{}/".format(FQDN)
