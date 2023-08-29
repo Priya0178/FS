@@ -81,7 +81,7 @@
 
 ```py
 git clone https://github.com/Priya0178/FS
-cd filestreambot-pro
+cd FS
 virtualenv -p /usr/bin/python3 venv
 . ./venv/bin/activate
 pip install -r requirements.txt
